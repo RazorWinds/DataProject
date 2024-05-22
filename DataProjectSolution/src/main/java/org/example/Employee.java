@@ -88,4 +88,16 @@ public class Employee {
                 + ", salary='" + salary + '\''
                 + '}';
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 }
