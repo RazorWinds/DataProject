@@ -52,16 +52,20 @@ public class EmployeeBuilder {
     }
 
     public EmployeeBuilder dateOfBirth(String dateOfBirth) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         this.dateOfBirth = LocalDate.parse(dateOfBirth, formatter);
         return this;
     }
 
     public EmployeeBuilder dateOfJoining(String dateOfJoining) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
 
         this.dateOfJoining = LocalDate.parse(dateOfJoining, formatter);
+        return this;
+    }
+
+    public EmployeeBuilder salary(String salary) {
+        this.salary = Double.parseDouble(salary);
         return this;
     }
 
@@ -103,11 +107,6 @@ public class EmployeeBuilder {
 
     public double getSalary() {
         return salary;
-    }
-
-    public EmployeeBuilder salary(String salary) {
-        this.salary = Double.parseDouble(salary);
-        return this;
     }
 
     public Employee build() {
