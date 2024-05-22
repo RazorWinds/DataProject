@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class EmployeeCsvReader {
 
-    public ArrayList<String> readFileLines(String fileName) {
+    public static ArrayList<String> readFileLines(String fileName) {
         ArrayList<String> arr = new ArrayList<>();
 
         try (
@@ -29,7 +29,7 @@ public class EmployeeCsvReader {
         return new Employee(line);
     }
 
-    public ArrayList<Employee> readEmployees(String fileName) {
+    public static ArrayList<Employee> readEmployees(String fileName) {
         ArrayList<Employee> employees = new ArrayList<>();
         
         for (String line : readFileLines(fileName)){
