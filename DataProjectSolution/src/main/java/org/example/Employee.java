@@ -1,30 +1,47 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class Employee {
 
-    private String id;
-    private String salutation;
+    private String empId;
+    private String namePrefix;
     private String firstName;
-    private String middleInitial;
+    private char middleInitial;
     private String lastName;
-    private String gender;
+    private char gender;
     private String email;
-    private String dateOfBirth;
-    private String dateOfJoining;
+    private LocalDate dateOfBirth;
+    private LocalDate dateOfJoining;
+    private double salary;
 
-    public String getId() {
-        return id;
+    public Employee(EmployeeBuilder builder) {
+        empId = builder.getEmpId();
+        namePrefix = builder.getNamePrefix();
+        firstName = builder.getFirstName();
+        middleInitial = builder.getMiddleInitial();
+        lastName = builder.getLastName();
+        gender = builder.getGender();
+        email = builder.getEmail();
+        dateOfBirth = builder.getDateOfBirth();
+        dateOfJoining = builder.getDateOfJoining();
+        salary = builder.getSalary();
     }
 
-    public String getSalutation() {
-        return salutation;
+    public String getEmpId() {
+        return empId;
+    }
+
+    public String getNamePrefix() {
+        return namePrefix;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getMiddleInitial() {
+
+    public char getMiddleInitial() {
         return middleInitial;
     }
 
@@ -32,7 +49,7 @@ public class Employee {
         return lastName;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 
@@ -40,64 +57,32 @@ public class Employee {
         return email;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public String getDateOfJoining() {
+    public LocalDate getDateOfJoining() {
         return dateOfJoining;
     }
 
-    public String getSalary() {
+    public double getSalary() {
         return salary;
     }
-    private String salary;
 
-    public Employee(String line) {
-        String[] detailArray = line.split(",");
-        int index = 0;
-        id = detailArray[index++];
-        salutation = detailArray[index++];
-        firstName = detailArray[index++];
-        middleInitial = detailArray[index++];
-        lastName = detailArray[index++];
-        gender = detailArray[index++];
-        email = detailArray[index++];
-        dateOfBirth = detailArray[index++];
-        dateOfJoining = detailArray[index++];
-        salary = detailArray[index];
-    }
-
-    public Employee createEmployee(String line) {
-        Employee employee = new Employee(line);
-        return employee;
-    }
 
     @Override
     public String toString() {
-        return "Employee{"
-                + "id='" + id + '\''
-                + ", salutation='" + salutation + '\''
-                + ", firstName='" + firstName + '\''
-                + ", middleInitial='" + middleInitial + '\''
-                + ", lastName='" + lastName + '\''
-                + ", gender='" + gender + '\''
-                + ", email='" + email + '\''
-                + ", dateOfBirth='" + dateOfBirth + '\''
-                + ", dateOfJoining='" + dateOfJoining + '\''
-                + ", salary='" + salary + '\''
-                + '}';
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+        return "Employee{" +
+                "id='" + empId + '\'' +
+                ", salutation='" + namePrefix + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleInitial='" + middleInitial + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", dateOfJoining='" + dateOfJoining + '\'' +
+                ", salary='" + salary + '\'' +
+                '}';
     }
 }
