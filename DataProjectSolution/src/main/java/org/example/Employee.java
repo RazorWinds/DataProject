@@ -1,43 +1,79 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class Employee {
 
-    private String id;
-    private String salutation;
+    private String empId;
+    private String namePrefix;
     private String firstName;
-    private String middleInitial;
+    private char middleInitial;
     private String lastName;
-    private String gender;
+    private char gender;
     private String email;
-    private String dateOfBirth;
-    private String dateOfJoining;
-    private String salary;
+    private LocalDate dateOfBirth;
+    private LocalDate dateOfJoining;
+    private double salary;
 
-    public Employee(String line) {
-        String[] detailArray = line.split(",");
-        int index=0;
-        id = detailArray[index++];
-        salutation = detailArray[index++];
-        firstName = detailArray[index++];
-        middleInitial = detailArray[index++];
-        lastName = detailArray[index++];
-        gender = detailArray[index++];
-        email = detailArray[index++];
-        dateOfBirth = detailArray[index++];
-        dateOfJoining = detailArray[index++];
-        salary = detailArray[index];
+    public Employee(EmployeeBuilder builder) {
+        empId = builder.getEmpId();
+        namePrefix = builder.getNamePrefix();
+        firstName = builder.getFirstName();
+        middleInitial = builder.getMiddleInitial();
+        lastName = builder.getLastName();
+        gender = builder.getGender();
+        email = builder.getEmail();
+        dateOfBirth = builder.getDateOfBirth();
+        dateOfJoining = builder.getDateOfJoining();
+        salary = builder.getSalary();
     }
 
-    public Employee createEmployee(String line){
-        Employee employee = new Employee(line);
-        return employee;
+    public String getEmpId() {
+        return empId;
     }
+
+    public String getNamePrefix() {
+        return namePrefix;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public char getMiddleInitial() {
+        return middleInitial;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public LocalDate getDateOfJoining() {
+        return dateOfJoining;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
 
     @Override
     public String toString() {
         return "Employee{" +
-                "id='" + id + '\'' +
-                ", salutation='" + salutation + '\'' +
+                "id='" + empId + '\'' +
+                ", salutation='" + namePrefix + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleInitial='" + middleInitial + '\'' +
                 ", lastName='" + lastName + '\'' +
