@@ -25,7 +25,7 @@ public class EmployeeCsvReader {
         return arr;
     }
 
-    public Employee createEmployee(String line) {
+    public static Employee createEmployee(String line) {
         return new Employee(line);
     }
 
@@ -36,7 +36,7 @@ public class EmployeeCsvReader {
             employees.add(createEmployee(line));
         }
         
-        return employees
+        return employees;
     }
 
 }
