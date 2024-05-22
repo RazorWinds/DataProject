@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class EmployeeCsvReader {  
-    private static final String filePath = "src/main/resources/employees.csv";
+    private static final String filePath = "src/main/resources/test_employees.csv";
     
     public static ArrayList<String> readFileLines() {
 

@@ -1,53 +1,47 @@
+
 import org.example.Employee;
-import org.example.EmployeeCsvReader;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import org.example.EmployeeCsvReader;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 public class Tests {
-    
+
     public Tests() {
     }
-    
-    
-    
+
     @Test
     @DisplayName("Details in customer objects should be correct")
-    void test1(){
+    void test1() {
         String expectedID = "198429";
-        String actualID = EmployeeCsvReader.readEmployees("src/main/resources/employees.csv").get(1).getId();
-        
+        String actualID = EmployeeCsvReader.readEmployees().get(0).getEmpId();
+
         assertThat(actualID, is(expectedID));
     }
-    
+
     @Test
     @DisplayName("Does array have correct length")
-    void test2(){
-        int acutalAmount = EmployeeCsvReader.readEmployees("src/main/resources/employees.csv").size();
-        
-        assertThat(acutalAmount, is(10001));
+    void test2() {
+        int acutalAmount = EmployeeCsvReader.readEmployees().size();
+
+        assertThat(acutalAmount, is(3));
     }
-    
-    
+
     @Test
     @DisplayName("Details in customer objects should be correct")
-    void test3(){
-        String expectedID = "133641";
-        String actualID = EmployeeCsvReader.readEmployees("src/main/resources/employees.csv").get(10000).getId();
-        
+    void test3() {
+        String expectedID = "647173";
+        String actualID = EmployeeCsvReader.readEmployees().get(2).getEmpId();
+
         assertThat(actualID, is(expectedID));
     }
-        @Test
+
+    @Test
     public void testReadEmployees_CorrectNumberOfEmployees() throws IOException {
         // Arrange
         String fileName = "src/main/resources/test_employees.csv";
@@ -56,7 +50,7 @@ public class Tests {
         EmployeeCsvReader reader = new EmployeeCsvReader();
 
         // Act
-        ArrayList<Employee> employees = reader.readEmployees(fileName);
+        ArrayList<Employee> employees = reader.readEmployees();
 
         // Assert
         MatcherAssert.assertThat(employees.size(), Matchers.equalTo(expectedNumberOfEmployees));
@@ -74,11 +68,11 @@ public class Tests {
         EmployeeCsvReader reader = new EmployeeCsvReader();
 
         // Act
-        ArrayList<Employee> employees = reader.readEmployees(fileName);
+        ArrayList<Employee> employees = reader.readEmployees();
         Employee firstEmployee = employees.get(0);
 
         // Assert
-        MatcherAssert.assertThat(firstEmployee.getId(), Matchers.equalTo(expectedId));
+        MatcherAssert.assertThat(firstEmployee.getEmpId(), Matchers.equalTo(expectedId));
         MatcherAssert.assertThat(firstEmployee.getFirstName(), Matchers.equalTo(expectedFirstName));
         MatcherAssert.assertThat(firstEmployee.getLastName(), Matchers.equalTo(expectedLastName));
 
@@ -96,11 +90,11 @@ public class Tests {
         EmployeeCsvReader reader = new EmployeeCsvReader();
 
         // Act
-        ArrayList<Employee> employees = reader.readEmployees(fileName);
+        ArrayList<Employee> employees = reader.readEmployees();
         Employee lastEmployee = employees.get(employees.size() - 1);
 
         // Assert
-        MatcherAssert.assertThat(lastEmployee.getId(), Matchers.equalTo(expectedId));
+        MatcherAssert.assertThat(lastEmployee.getEmpId(), Matchers.equalTo(expectedId));
         MatcherAssert.assertThat(lastEmployee.getFirstName(), Matchers.equalTo(expectedFirstName));
         MatcherAssert.assertThat(lastEmployee.getLastName(), Matchers.equalTo(expectedLastName));
 
