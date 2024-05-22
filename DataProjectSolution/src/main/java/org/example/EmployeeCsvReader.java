@@ -6,11 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class EmployeeCsvReader {
-    
+public class EmployeeCsvReader {  
     private static final String filePath = "src/main/resources/employees.csv";
     
     public static ArrayList<String> readFileLines() {
+
         ArrayList<String> arr = new ArrayList<>();
 
         try (

@@ -40,6 +40,7 @@ public class Employee {
         return firstName;
     }
 
+
     public char getMiddleInitial() {
         return middleInitial;
     }
