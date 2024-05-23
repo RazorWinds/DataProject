@@ -45,11 +45,19 @@ public class EmployeeCsvReader {
                 .build();
     }
 
+    public static boolean isLineValid(String line){
+        String regexPattern = "[0-9]{6},[A-Z]{1}[a-z]+.,[A-Za-z]+,[A-Z]{1},[A-Za-z]+,[A-Z]{1},[a-zA-Z._-]+@[a-zA-Z]+.[a-zA-Z.]+,[0-9]+\\/[0-9]+\\/[0-9]+,[0-9]+\\/[0-9]+\\/[0-9]+,[0-9.]+";
+        return line.matches(regexPattern);
+    }
+
     public static ArrayList<Employee> readEmployees() {
         ArrayList<Employee> employees = new ArrayList<>();
         
         for (String line : readFileLines()){
-            employees.add(createEmployee(line));
+            if (isLineValid(line)) {
+                employees.add(createEmployee(line));
+            }
+            //else
         }
         
         return employees;
