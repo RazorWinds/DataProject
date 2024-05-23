@@ -29,7 +29,7 @@ public class Tests {
     void test2() {
         int acutalAmount = EmployeeCsvReader.readEmployees().size();
 
-        assertThat(acutalAmount, is(3));
+        assertThat(acutalAmount, is(9993));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class Tests {
     public void testReadEmployees_CorrectNumberOfEmployees() throws IOException {
         // Arrange
         String fileName = "src/main/resources/test_employees.csv";
-        int expectedNumberOfEmployees = 3;  // Replace with actual number of employees in your test file
+        int expectedNumberOfEmployees = 9993;  // Replace with actual number of employees in your test file
 
         EmployeeCsvReader reader = new EmployeeCsvReader();
 
@@ -82,10 +82,10 @@ public class Tests {
     public void testReadEmployees_LastEmployeeData() throws IOException {
         // Arrange
         String fileName = "src/main/resources/test_employees.csv";
-        int numberOfEmployees = 3;  // Replace with actual number of employees in your test file
-        String expectedId = "647173";
-        String expectedFirstName = "Milan";
-        String expectedLastName = "Krawczyk";
+        int numberOfEmployees = 9993;  // Replace with actual number of employees in your test file
+        String expectedId = "133641";
+        String expectedFirstName = "Chas";
+        String expectedLastName = "Hurdle";
 
         EmployeeCsvReader reader = new EmployeeCsvReader();
 
