@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        EmployeeCsvReader.readEmployees();
-        System.out.println(EmployeeCsvReader.faultyLines.size());
+        ArrayList<Employee> employees = EmployeeCsvReader.readEmployees();
+        EmployeeSerialiser.outputJson(employees);
+        EmployeeSerialiser.outputXml(employees);
+        
     }
 }

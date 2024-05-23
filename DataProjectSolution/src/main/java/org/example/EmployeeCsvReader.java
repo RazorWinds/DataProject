@@ -68,7 +68,7 @@ public class EmployeeCsvReader {
                 logFaultyLine(line);
             }
         }
-
+        
         return employees;
     }
 
@@ -89,5 +89,5 @@ public class EmployeeCsvReader {
         LOGGER.log(Level.WARNING, "Faulty line: " + line);
     }
 
-
+    
 }
