@@ -10,9 +10,9 @@ import org.junit.jupiter.api.DisplayName;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-public class Tests {
+public class ReadfileTests {
 
-    public Tests() {
+    public ReadfileTests() {
     }
 
     @Test
@@ -100,4 +100,11 @@ public class Tests {
 
     }
     
+    
+    @Test
+    void testCorrectAmountOf_FaultyLines(){
+        int expected = 7;
+        EmployeeCsvReader.readEmployees();
+        assertThat(EmployeeCsvReader.faultyLines.size(), equalTo(expected));
+    }
 }
