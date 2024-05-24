@@ -18,7 +18,7 @@ public class EmployeeCsvReader {
     public static ArrayList<String> readFileLines() {
 
         ArrayList<String> arr = new ArrayList<>();
-        setUpFileHandler();
+
 
         try (
                 BufferedReader reader = Files.newBufferedReader(Paths.get(filePath));) {
@@ -72,7 +72,7 @@ public class EmployeeCsvReader {
         return employees;
     }
 
-    private static void setUpFileHandler(){
+    public static void setUpFileHandler(){
         LOGGER.setUseParentHandlers(false);
         FileHandler handler = null;
         try {

@@ -5,6 +5,7 @@ import org.hamcrest.Matchers;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.example.EmployeeCsvReader;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.hamcrest.MatcherAssert.*;
@@ -13,6 +14,11 @@ import static org.hamcrest.Matchers.*;
 public class ReadfileTests {
 
     public ReadfileTests() {
+    }
+
+    @BeforeAll
+    public static void setUpFileHandler() {
+        EmployeeCsvReader.setUpFileHandler();
     }
 
     @Test

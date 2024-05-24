@@ -2,6 +2,8 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import org.example.EmployeeBuilder;
+import org.example.EmployeeCsvReader;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,7 +13,11 @@ public class ConversionTests {
     
     public ConversionTests() {
     }
-    
+    @BeforeAll
+    public static void setUpFileHandler() {
+        EmployeeCsvReader.setUpFileHandler();
+    }
+
     @Test
     public void testValidDateOfBirthSingleDigitMonthAndDay() {
         EmployeeBuilder builder = new EmployeeBuilder();
